@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TasksModule } from './tasks/tasks.module';
+import { DataSource } from 'typeorm';
 
 @Module({
   imports: [
@@ -17,4 +18,6 @@ import { TasksModule } from './tasks/tasks.module';
     }),
   ],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private dataSource: DataSource) {}
+}
